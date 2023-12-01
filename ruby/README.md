@@ -1,8 +1,8 @@
-# ruby template for server and gems distribution
+# Ruby template for server and gems distribution
 
 Deploy your own gem server along with your custom gems
 
-#### install the gem 
+#### Install the gem 
 To install the gem localy and run it from any directory
 
 From 
@@ -16,7 +16,7 @@ gem install ./my_new_gem-0.0.0.gem
 ```
 Then type ``my_new_gem`` from anywhere in the dir to run your new program.
 
-#### run the gem server
+#### Run the gem server
 
 To run the gem server and install from "local" server
 ```bash
