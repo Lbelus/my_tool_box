@@ -34,7 +34,7 @@ intree_t* insert(intree_t* root, void* ptr)
 
     uintptr_t low = (uintptr_t)root->address;
 
-    if ((uintptr_t)ptr < low )
+    if ((uintptr_t)ptr < low)
     {
         root->left = insert(root->left, ptr);
     } 
