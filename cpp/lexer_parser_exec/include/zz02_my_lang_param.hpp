@@ -1,7 +1,7 @@
 #ifndef MY_LANG_PARAM_
 #define MY_LANG_PARAM_
 
-#include <zz00_my_main_lang.hpp>
+// #include <zz00_my_main_lang.hpp>
 /*
 *SP = space
 *CRLF Carriage Return Line Feed

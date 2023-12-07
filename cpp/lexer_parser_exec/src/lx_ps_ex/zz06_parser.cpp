@@ -54,11 +54,11 @@ namespace UsrIn
         // }
         for (const TokPair_t& instr : instrVec)
         {
-            // if (!isValidInstr(instr))
-            // {
-            //     std::cerr << "INVALID INSTRUCTION" << std::endl;
-            //     return EXIT_FAILURE;
-            // }
+            if (!isValidInstr(instr))
+            {
+                std::cerr << "INVALID INSTRUCTION" << std::endl;
+                return EXIT_FAILURE;
+            }
             // if (&instr == lastInstr)
             // {
             //     isLast = true;

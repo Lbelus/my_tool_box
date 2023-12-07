@@ -231,112 +231,6 @@ namespace UsrIn
         }
     }
 
-
-
-
-
-
-    void Lexer::createCommonInstr(const std::string& token, InstrPair& pair)
-    {
-            std::cout << "creating common instruction" << token << std::endl;
-            pair.first(token);
-            readyStatus = true;
-    }
-
-
-    void Lexer::createDigitInstr(const std::string& token, InstrPair& pair)
-    {
-        // ValPair_t valuePair;
-        // valuePair.first = token;
-        // pair.second(valuePair);
-        // readyStatus = true;
-    }
-
-
-    void Lexer::storeUserArg(const std::string& token, InstrPair& pair)
-    {
-        // ValPair_t valuePair;
-        // valuePair.first = token;
-        // pair.second(valuePair);
-        // acceptUserArg = false;
-        // readyStatus = true;
-    }
-
-
-     /*  doNothing
-        input: nil
-            Placeholder for characters tokens;
-        output: nil;
-    */
-    void Lexer::doNothing(const std::string& token, InstrPair& pair)
-    {
-    }
-
-
-    /*  createInstr_TYP1
-        input: string, empty pair instruction
-            Create a type token
-        output: nil;
-    */
-    void Lexer::createInstr_TYP1(const std::string& token, InstrPair& pair)
-    {
-        // if (token == S_CATEGORY_TYP1)
-        // {
-        //     pair.first(token);
-        //     readyStatus = false;
-        //     acceptUserArg = true;
-        // } 
-        // else
-        // {
-            pair.first(token);
-            readyStatus = true;
-        // }
-    }
-
-
-    /*  createInstr_TYP2
-        input: string, empty pair instruction
-            Create a keyword token with optinonal arguments (limited to two)
-        output: nil;
-    */
-    void Lexer::createInstr_TYP2(const std::string& token, InstrPair& pair)
-    {
-        // if (token == S_CATEGORY_TYP2)
-        // {
-        //     pair.first(token);
-        //     readyStatus = false;
-        //     acceptUserArg = true;
-        // } 
-        // else
-        // {
-            pair.first(token);
-            readyStatus = true;
-        // }
-    }
-
-
-    /*  ccreateInstr_TYP3
-        input: string, empty pair instruction
-            Create a keyword token with optinonal arguments (limited to two)
-        output: nil;
-    */
-    void Lexer::createInstr_TYP3(const std::string& token, InstrPair& pair)
-    {
-        // if (token == S_CATEGORY_TYP3)
-        // {
-        //     pair.first(token);
-        //     readyStatus = false;
-        //     acceptUserArg = true;
-        // }
-        // else
-        // {
-            pair.first(token);
-            readyStatus = true;
-        // }
-    }
-
-
-
     /*  distributeTokens
         input: nil
             clear all variables fomr object;
@@ -368,7 +262,7 @@ namespace UsrIn
     void Lexer::printVec()
     {
         std::cout << std::endl;
-        std::cout << "--------Inspecting TOKENS on each CATEGORIES--------" << std::endl;     
+        std::cout << "--------Inspecting TOKENS on each CATEGORIES--------\n" << std::endl;     
 
 
     for (const auto& pair : categoryMap)
@@ -383,36 +277,7 @@ namespace UsrIn
         }
         std::cout << std::endl;
     }
-
-        // std::cout << S_CATEGORY_CHARACTERS << ":\t ";
-        // for (size_t i = 0; i < charactersVec.size(); ++i)
-        // {
-        //     std::cout << *charactersVec[i] << "\t ";
-        // }
-        // std::cout << std::endl;
-
-        // std::cout << S_CATEGORY_KEYWORDS << ":\t ";
-        // for (size_t i = 0; i < keywordsVec.size(); ++i)
-        // {
-        //     std::cout << *keywordsVec[i] << "\t ";
-        // }
-        // std::cout << std::endl;
-
-        // std::cout << S_CATEGORY_TYPES << ":\t\t ";
-        // for (size_t i = 0; i < typesVec.size(); ++i)
-        // {
-        //     std::cout << *typesVec[i] << "\t ";
-        // }
-        // std::cout << std::endl;
-
-        // std::cout << S_CATEGORY_DIGITS << ":\t\t ";
-        // for (size_t i = 0; i < digitsVec.size(); ++i)
-        // {
-        //     std::cout << *digitsVec[i] << "\t ";
-        // }
-        std::cout << std::endl;
-        std::cout << "-------------------End of inspection----------------" << std::endl;
-        std::cout << std::endl;
+        std::cout << "\n-------------------End of inspection----------------\n" << std::endl;
     }
 
 }

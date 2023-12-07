@@ -2,7 +2,8 @@
 #define MY_EXECUTOR_HEADER_
 // #include <main_header.hpp>
 
-#include <zz00_my_main_lang.hpp>
+// #include <zz00_my_main_lang.hpp>
+#include <zz02_my_lang_param.hpp>
 // #include <yy05_my_ftp_cmd.hpp>
 
 /*
@@ -68,6 +69,7 @@ namespace UsrIn
     //     }
     //     void execMethod(std::string& resp, const std::string& methodName);
     // };
+
 
     // int launchServer(std::string& resp, const PairVec_t& instructions, SocketMov&& clientPI);
     // bool handleClientInput(std::string& resp, Lexer& lx, std::string& cmd, SocketMov&& clientPI);

@@ -11,7 +11,6 @@ namespace UsrIn
         launch(instructions);
     }
 
-
     void handleStandardInput(Lexer& lx)
     {
         bool result = true;

@@ -22,7 +22,6 @@ namespace UsrIn
             TokVec_t         tokens;
 
             TokPair_t        tmp;
-            bool             readyStatus;
 
             PairVec_t        instructions;
 
