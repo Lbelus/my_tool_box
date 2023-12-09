@@ -19,7 +19,7 @@ char** my_strtok(char* str, int start_pos, char ch)
     char* end;
     int index = start_pos;
     int pos = 0;
-    while ((end = my_strchr(start, ch)) != NULL)
+    while ((end = _my_strchr(start, ch)) != NULL)
     {
         pos = find_ch(start, ch);
         start[pos] = '\0';

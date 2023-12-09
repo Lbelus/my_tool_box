@@ -9,6 +9,6 @@ void count_str_array(int argc, char** argv, my_getopt_t* getopt_ptr)
         {
             getopt_ptr->nbr_str += 1;
         }
-        index++;
+        index += 1;
     }
 }

@@ -1,7 +1,7 @@
 #include <main_header.h>
 
-int my_getopt(char** argv, char* valid_args, my_getopt_t* getopt_ptr)
-{   
+int my_getopt(char** argv, const char* valid_args, my_getopt_t* getopt_ptr)
+{
     //initialize
     if (getopt_ptr->index == 0)
     {
@@ -13,8 +13,8 @@ int my_getopt(char** argv, char* valid_args, my_getopt_t* getopt_ptr)
     {
         return BADARG;
     }
-
-    char* opt = my_strchr(valid_args, argv[getopt_ptr->index][getopt_ptr->pos]);
+    
+    const char* opt = _my_strchr(valid_args, argv[getopt_ptr->index][getopt_ptr->pos]);
     if (opt == NULL && argv[getopt_ptr->index][getopt_ptr->pos] == '\0')
     {
         getopt_ptr->pos = 0;

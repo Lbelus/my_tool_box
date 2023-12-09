@@ -3,7 +3,6 @@
 
 #include <main_header.h>
 
-
 #define __SPACE_CHAR__   ' '
 #define MAX_INPUT_TOKENS 250
 #define DELIMITER        '\n'

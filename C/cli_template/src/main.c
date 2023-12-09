@@ -21,7 +21,7 @@ int main(int argc, char** argv)
         {
             fd = -1;
         }
-        free_opt(cmd_count, tokens, getopt_ptr);
+        free_opt(getopt_ptr);
         free(tokens);
         free(str);
     }

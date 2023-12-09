@@ -8,7 +8,6 @@
 #include <unistd.h>
 #include <stdbool.h>
 
-
 extern int READLINE_READ_SIZE;
 extern char* rl_buff;
 #define SPACE_CHAR ' '

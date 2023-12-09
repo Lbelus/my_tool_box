@@ -34,7 +34,7 @@ int execute_cmd(my_getopt_t* getopt_ptr)
 
     while (cf_ptr->cmd != NULL)
     {
-        if (my_strcmp(getopt_ptr->str_arr[0], cf_ptr->cmd) == 0)
+        if (_my_strcmp(getopt_ptr->str_arr[0], cf_ptr->cmd) == 0)
         {
             return cf_ptr->func_ptr(getopt_ptr);
         }
