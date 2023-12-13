@@ -4,7 +4,6 @@
 #include <my_libasm.h>
 #include <main_header.h>
 
-
 #ifndef STRUCT_MY_GETOPT
 #define STRUCT_MY_GETOPT
 typedef struct s_my_getopt

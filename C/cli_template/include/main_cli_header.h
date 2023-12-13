@@ -1,5 +1,5 @@
-#ifndef __MAIN_HEADERFILE_
-#define __MAIN_HEADERFILE_
+#ifndef __MAIN_CLI_HEADERFILE_
+#define __MAIN_CLI_HEADERFILE_
 
 #include <stdlib.h>
 #include <stdbool.h>
