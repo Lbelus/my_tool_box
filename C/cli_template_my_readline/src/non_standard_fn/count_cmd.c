@@ -17,7 +17,7 @@ int set_offset(bool is_cli)
 int count_cmd(char* str, bool is_cli)
 {
     int index = 0;
-    int counter = set_offset(bool is_cli);
+    int counter = set_offset(is_cli);
     while (str[index] != '\0')
     {
         if (str[index] == __SPACE_CHAR__)
