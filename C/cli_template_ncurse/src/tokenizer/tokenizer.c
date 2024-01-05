@@ -1,6 +1,5 @@
 #include <main_header.h>
 
-
 int find_ch(char* str, char ch)
 {
     int index = 0;
@@ -13,7 +12,6 @@ int find_ch(char* str, char ch)
 
 char** my_strtok(char* str, int start_pos, char ch)
 {
-    char* tmp = str;
     char** tokens = malloc(sizeof(char*) * MAX_INPUT_TOKENS);
     char* start = str;
     char* end;

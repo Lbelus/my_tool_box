@@ -20,7 +20,7 @@ RUN apt-get update && \
 
 # Clean up to reduce image size
 RUN   apt-get autoremove -y && \
-      apt-get clean
+      apt-get clean \
       rm -rf /var/lib/apt/lists/*
 
 # Install google-test

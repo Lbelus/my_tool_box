@@ -1,9 +1,10 @@
 #include <ncurse_IO.h>
-
+#include <sys/stat.h>
+#include <fcntl.h>
 // char* nc_buff;
 
 
-void finish(int sig)
+void finish()
 {
     endwin();
     exit(EXIT_SUCCESS);
@@ -97,7 +98,7 @@ char* read_input()
     int index = 0;
     int cursor_pos = 0;
     win_width = getmaxx(stdscr);
-    nc_buff = (char*)malloc(sizeof(char)* win_width - 1);
+    nc_buff = (char*)malloc(sizeof(char)* (500 - 1));
     _my_memset(nc_buff, '\0', win_width);
     while (true)
     {
@@ -132,6 +133,7 @@ char* read_input()
         }
         else if (ch == 4)
         {
+            free(nc_buff);
             break; // Exit the loop on ctrl + d
         }
         else if (index < win_width - 1)
@@ -189,32 +191,58 @@ char* read_input()
 //     }
 // }
 
+int get_file_size(char* filename)
+{
+    struct stat st;
+    if (stat(filename, &st) == 0)
+    {
+        return (int)st.st_size; // limit file size to an int
+    }
+    else
+    {
+        return -1;
+    }
+}
 
+char* read_to_buffer(char* filename)
+{
+    int     size    = get_file_size(filename);
+    char*   buff    = (char*)malloc(sizeof(char)*(size + 1));
+    int     fd      = open(filename, O_RDONLY);
+    int     block   = 0;
+    int     pos     = 0;
+    while ((block = read(fd, &buff[pos], BLOCK_SIZE)))
+    {
+        pos += block;
+    }
+    buff[pos] = '\0';
+    close(fd);
+    return buff;
+}
 
-// used f functions to win a bit of time, need to recode toward lower level
 void execute_and_capture(my_getopt_t* getopt_ptr)
 {
-    // Redirect stdout
     fflush(stdout);
     int original_stdout = dup(STDOUT_FILENO);
-    FILE* tempFile = fopen("temp_output.txt", "w+");
-    dup2(fileno(tempFile), STDOUT_FILENO);
-
+    int fd = open("temp_output.txt", O_RDWR | O_CREAT, 0644);
+    dup2(fd, STDOUT_FILENO);
     execute_cmd(getopt_ptr);
-
-    // Restore original stdout
     fflush(stdout);
     dup2(original_stdout, STDOUT_FILENO);
-    fclose(tempFile);
+    close(fd);
+}
 
-    tempFile = fopen("temp_output.txt", "r");
-    char buffer[256];
-    while (fgets(buffer, sizeof(buffer), tempFile))
-    {
-        printw("%s", buffer);
-    }
-    fclose(tempFile);
-    remove("temp_output.txt"); // Clean up the temporary file
+void output_capture()
+{
+    char* buffer = read_to_buffer("temp_output.txt");
+    printw("%s", buffer);
+    free(buffer);
+    remove("temp_output.txt");
+}
 
-    refresh(); // Refresh the ncurses screen
+void execute_capture_output(my_getopt_t* getopt_ptr)
+{
+    execute_and_capture(getopt_ptr);
+    output_capture();
+    refresh();
 }

@@ -8,7 +8,7 @@
 typedef struct s_my_getopt my_getopt_t;
 
 
-void    finish(int sig);
+void    finish();
 void    init_ncurse();
 
 void    update_cursor(char* buffer, int cursor_pos);
@@ -17,7 +17,7 @@ void    erase_buff(char* buffer, int cursor_pos, int curr);
 void    update_buff(char* buffer, int cursor_pos, int curr);
 char*   read_input();
 
-void    execute_and_capture(my_getopt_t* getopt_ptr);
+void    execute_capture_output(my_getopt_t* getopt_ptr);
 
 
 #endif
